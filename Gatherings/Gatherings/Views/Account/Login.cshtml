@@ -1,0 +1,162 @@
+﻿@{
+    ViewBag.Title = "Log in";
+}
+
+
+
+<div class="jumbotron">
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Gatherings</a>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li id="signUp"><a href="#">Sign In</a></li>
+
+                    <li id="register"><a href="#" onclick="$('#signupbox').show(); $('#loginbox').hide()">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="center-block title">
+                    <!--h1>Welcome to <span>Gatherings</span></h1-->
+                    <h3>The Ultimate Event <span>Organizer</span></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer erat quam, mollis scelerisque libero sed, varius cursus magna.</p>
+                    <a href="#" class="btn btn-default btn-primary btn-lg"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>Learn More</a>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="col-md-5 iphone">
+                <img src="~/img/iphone2.png" alt="iphone2" width="831" height="1712" class="center-block hidden-sm hidden-xs">
+            </div>
+        </div>
+    </div>
+
+</div>
+    </div><!--END JUMBOTRON-->
+
+<div class="services">
+    <div class="container">
+        <div class="row">
+            <div class="services-web text-center">
+                <div class="col-sm-4 col-xs-12">
+                    <span class="icon-sprite sprite-web">&nbsp;</span>
+                    <h4>Create Your Events</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut ecitur dolor.</p>
+                    <a href="#" class="more">learn more</a>
+                </div>
+            </div>
+            <!-- end services-web -->
+
+            <div class="services-dev text-center">
+                <div class="col-sm-4 col-xs-12">
+                    <span class="icon-sprite sprite-dev">&nbsp;</span>
+                    <h4>Prioritize</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut ecitur dolor.</p>
+                    <a href="#" class="more">learn more</a>
+                </div>
+            </div>
+            <!-- end services-dev -->
+
+            <div class="services-sup text-center">
+                <div class="col-sm-4 col-xs-12">
+                    <span class="icon-sprite sprite-sup">&nbsp;</span>
+                    <h4>Organize</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut ecitur dolor.</p>
+                    <a href="#" class="more">learn more</a>
+                </div>
+            </div>
+            <!-- end services-sup -->
+
+
+        </div>
+    </div>
+</div>
+<!-- end services -->
+<div class="process">
+
+    <div class="heading  text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Many Features to <span>Ease your Planning</span></h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum tellus et massa sagittis sollicitudin ut id nisi. In vestibulum non elit a pharetra. Vestibulum nec lectus ac nibh ullamcorper aliquet.</p>
+                </div>
+            </div>
+        </div>
+    </div><!-- end heading -->
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-4 col-xs-12">
+                <img src="~/img/mock-placeholder.png" alt="mock-placeholder" width="337" height="180">
+                <h4>Pizza Party</h4>
+            </div>
+            <!-- end services-web -->
+
+            <div class="col-sm-4 col-xs-12">
+                <img src="~/img/mock-placeholder.png" alt="mock-placeholder" width="337" height="180">
+                <h4>BBQ</h4>
+            </div>
+            <!-- end services-dev -->
+
+            <div class="col-sm-4 col-xs-12">
+                <img src="~/img/mock-placeholder.png" alt="mock-placeholder" width="337" height="180">
+                <h4>Block Party</h4>
+            </div>
+            <!-- end services-sup -->
+
+
+        </div>
+    </div>
+</div>
+
+<div class="call-to-action">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <img src="~/img/iphone.png" alt="iphone" width="454" height="593" class="hidden-sm hidden-xs">
+            </div>
+            <div class="col-md-6">
+                <h2>Check out all of the Features</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non erat placerat, porta turpis iaculis, feugiat elit. Curabitur sit amet neque non ligula scelerisque interdum. Mauris varius placerat laoreet. Duis commodo vulputate nibh in porta. Phasellus luctus odio a neque facilisis.</p>
+
+                <a href="#" class="btn btn-default btn-primary btn-lg">Key Features</a>
+
+            </div>
+        </div>
+    </div>
+</div><!--end call-to-action-->
+
+@section scripts{
+
+    <script src="~/Scripts/app.js"></script>
+    <script>
+        $("#btn-login").click(function (event) {
+            $('#loginform').submit();
+        });
+
+    </script>
+}

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <title>@ViewBag.Title - Gatherings</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:700,300,100,400,800' rel='stylesheet' type='text/css'>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/style-nonUser.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+    @{Html.RenderPartial("Header/_Account");}
+
+
+    @RenderBody()
+
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12">
+                    <p>&copy;@DateTime.Now.Year Gathr. All Rights Reserved.</p>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

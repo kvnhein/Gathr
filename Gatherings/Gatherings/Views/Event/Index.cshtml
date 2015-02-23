@@ -1,0 +1,203 @@
+﻿@model Gatherings.Models.Pages.EventPageModel
+
+@{
+    ViewBag.Title = "Event Details";
+}
+
+<div class="events-nav">
+
+    <div class="container-fluid main-content">
+        <div class="row">
+
+            <div class="col-sm-12" style="padding-right:0;padding-left:0;">
+                <ul class="nav nav-pills nav-left arrow">
+                    <li role="presentation"><a href="#"><span class="glyphicon arrow glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+                    <li role="presentation" style="border-right:0;"><a href="#"><span class="glyphicon arrow glyphicon-arrow-right" aria-hidden="true"></span></a></li>
+                </ul>
+
+                <ul class="nav nav-pills navbar-right">
+                    <li role="presentation"><h4>Hosted By @Model.eventList.FirstOrDefault().FullName</h4></li>
+                    <li role="presentation" class="calendar-view-btn"><a href="#">Accept Invite!</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="page-wrapper page-content-wrapper events-page">
+
+    <div class="container-fluid main-content">
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="big-event-img">
+                    <!--h1>Party Bus</h1-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-sm-6 event-title">
+                <h1>Party Bus</h1>
+                <h4>5/21/14</h4>
+                <h4>Location: Pittsburgh PA</h4>
+            </div>
+
+            <div class="col-sm-6 guest-info">
+                <div class="row padding-r">
+                    <div class="col-xs-4">
+                        <h5>Attending</h5>
+                        <h1>25</h1>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <h5>Maybe</h5>
+                        <h1>25</h1>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <h5>Invited</h5>
+                        <h1>25</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row  border-bottom">
+            <div class="col-sm-6 event-description">
+                <h5>Hosted By Samwise Gamshee</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean malesuada vestibulum ex, nec ultrices erat aliquam finibus. Sed varius, erat ut elementum dignissim, risus orci scelerisque diam, in aliquet dui mauris eget tellus. Donec eget enim augue. Curabitur ornare sollicitudin aliquam. Suspendisse porttitor vehicula dapibus. Quisque ut consectetur magna. Mauris eget ex at enim accumsan viverra ac vitae magna. Morbi faucibus mi lacus, et sollicitudin diam bibendum eget. Donec auctor turpis vitae sollicitudin porttitor. In sem massa, tincidunt at finibus nec, tristique id augue. Vivamus mollis, velit ac gravida tristique, orci diam malesuada mi, sit amet tempus elit nisi sit amet nisl. Proin aliquet leo massa, nec bibendum ante vehicula sed. Donec rutrum enim a nunc feugiat mollis. Pellentesque a luctus ligula, non lobortis nulla. Nullam porta est vitae erat facilisis ultrices. Phasellus pellentesque sagittis volutpat.</p>
+            </div>
+
+            <div class="col-sm-6 event-chat hidden-xs">
+
+
+                <!--start chat-->
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Event Chat
+                    </div>
+                    <div class="panel-body">
+                        <ul class="media-list">
+
+                            <li class="media">
+
+                                <div class="media-body">
+
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object img-circle " src="/img/user.png" />
+                                        </a>
+                                        <div class="media-body">
+                                            Donec sit amet ligula enim. Duis vel condimentum massa.
+
+                                            Donec sit amet ligula enim. Duis vel condimentum massa.Donec sit amet ligula enim.
+                                            Duis vel condimentum massa.
+                                            Donec sit amet ligula enim. Duis vel condimentum massa.
+                                            <br />
+                                            <small class="text-muted">Alex Deo | 23rd June at 5:00pm</small>
+                                            <hr />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Message" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="button">SEND</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--end chat-->
+
+            </div>
+        </div>
+
+        <div class="row event-items-title">
+            <div class="col-sm-12">
+                <h2>Event Items</h2>
+                <h4>Throw Down $50.00</h4>
+            </div>
+        </div>
+
+        <div class="row event-items">
+
+            <div class="col-sm-6 visible-xs">
+                <h4>Your Credits for Contribution</h4>
+
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                </div>
+
+
+                <p>Use Your credits to vote on the assortmant of items. If you want to place a higher vote contribution of a certain item, add more credits to that item using the â€œ+â€ button.</p>
+            </div>
+
+
+            <!--START EVENT LIST-->
+            <div class="col-sm-6">
+                <div class="new-event-item">
+                    <h3>Beer</h3>
+                    <h5>10 Contributers</h5>
+                    <div class="vote-button">
+                        <a class="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                        <a class="minus"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            <span class="sr-only">60% Complete</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="item-info">
+                        <a>
+                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true" style="padding-right:5px;"></span>More Info
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!--END EVENT LIST-->
+
+
+            <div class="col-sm-6 hidden-xs">
+                <h4>Your Credits for Contribution</h4>
+
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                </div>
+
+
+                <p>Use Your credits to vote on the assortmant of items. If you want to place a higher vote contribution of a certain item, add more credits to that item using the â€œ+â€ button.</p>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->

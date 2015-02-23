@@ -1,0 +1,188 @@
+﻿@model Gatherings.Models.Pages.EventPageModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="current-events">
+    <!--div class="event-choices">
+    <div class="col-xs-12">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <a href="#" class="btn btn-default btn-primary btn-lg active">Upcoming Events</a>
+            <!--a href="#" class="btn btn-default btn-primary btn-lg">Invites</a-->
+    <!--a href="#" class="btn btn-default btn-primary btn-lg">Past Events</a>
+        </div>
+    </div>
+    </div-->
+</div>
+
+
+<div class="events-nav">
+
+    <div class="container-fluid main-content">
+        <div class="row">
+
+            <div class="col-sm-12 visible-xs" style="padding:0;">
+                <div class="dropdown dropdown-left">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        View All
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu filters" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" class="active"><a href="#" class="filter" data-filter="*">View All</a></li>
+                        <li role="presentation"><a href="#" class="filter" data-filter="iHost">Hosted Events</a></li>
+                        <li role="presentation"><a href="#" class="filter" data-filter="theyHost">Invited Events</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown dropdown-right">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        List View
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" class="active list-view-btn"><a href="#"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>List View</a></li>
+                        <li role="presentation" class="calendar-view-btn"><a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Calendar</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="col-sm-12 hidden-xs" style="padding-right:0;padding-left:0;">
+                <ul class="nav nav-pills nav-left filters">
+                    <li role="presentation" class="active"><a href="#" class="filter" data-filter="*">View All</a></li>
+                    <li role="presentation"><a href="#" class="filter" data-filter="iHost">Hosted Events</a></li>
+                    <li role="presentation"><a href="#" class="filter" data-filter="theyHost">Invited Events</a></li>
+                </ul>
+
+
+                <ul class="nav nav-pills navbar-right">
+                    <li role="presentation" class="active list-view-btn"><a href="#"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>List View</a></li>
+                    <li role="presentation" class="calendar-view-btn"><a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Calendar</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="page-wrapper page-content-wrapper listed-events">
+
+    <div class="container-fluid main-content">
+
+
+
+        <div class="row">
+
+            <div class="new-event-mobile visible-xs">
+                <div class="col-sm-6 col-md-4 col-xs-12">
+                    @using (Html.BeginForm("Create", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id="create-event-form", @class = "form-horizontal", role = "form" }))
+                    {
+                        <a href="#" id="create-event" class="btn btn-default btn-primary btn-lg">Create New Event!</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="list-view-events">
+            <div class="row">
+
+                    @foreach (var thisEvent in Model.eventList)
+                    {
+                        <div class="filterWrapper">
+                            <div id="@thisEvent.EventId" class="current-events" data-filter="@thisEvent.EventHost">
+                                <div class="col-sm-6 col-md-4 col-xs-12">
+                                    <div class=" event-list">
+                                        <div class="rollover"><a href="Event/Details/@(thisEvent.EventId)"><img src="@Model.bloburl@thisEvent.Image" width="680" height="485" /></a></div>
+                                        <div class="event-info">
+                                            <h4>@thisEvent.Title</h4>
+                                            <h5>@thisEvent.StartDate.ToString("MM/dd/yyyy")</h5>
+                                            <p>@thisEvent.Description</p>
+                                            <a href="Event/Details/@(thisEvent.EventId)" class="more">View Event</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }    
+
+            </div>
+            <!--END ROW-->
+        </div><!--END LIST VIEW EVENTS-->
+    </div>
+    <!-- /.container-fluid -->
+
+
+</div>
+<!-- /#page-wrapper -->
+
+
+
+<div id="page-wrapper page-content-wrapper">
+
+    <div class="container-fluid main-content">
+
+        <!--CALENDAR-->
+        <div class="row calendar-events none">
+
+            <div class="col-xs-12">
+                <div id="calendar"></div>
+            </div>
+        </div>
+
+        <!--END-->
+
+    </div>
+</div>
+
+@section scripts{
+	<script>
+
+        $(document).ready(function () {
+            $("a#create-event").click(function () {
+                $("#create-event-form").submit();
+            });
+        });
+
+        $('ul.filters li a').click(function (e) {
+            e.preventDefault();
+
+		    $('ul.filters .active').removeClass('active');
+
+	        $(this).parent().addClass('active');
+
+		    var filter = $(this).attr('data-filter');
+
+		    $('.filterWrapper > div:visible').each(function (i) {
+		        $(this).fadeOut(200, function ()
+		        {
+		            show(filter);
+		        });
+		    });
+
+		    return false;
+	    });
+
+        function show(filter) {
+	        if (filter == '*')
+	        {
+	            $('.filterWrapper > div').fadeIn(200);
+	        }
+	        else
+	        {
+	            $('.filterWrapper > div').each(function () {
+	                //alert($(this).attr('data-filter') + ' - ' + filter);
+
+				    if($(this).attr('data-filter') == filter) {
+					    $(this).fadeIn(200);
+				    }
+			    });
+		    }
+	    }
+    </script>
+}

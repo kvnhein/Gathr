@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GatheringsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="ef_CreateEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_EventId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_ASPNetUsersId" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_Title" Type="varchar" Mode="In" />
+          <Parameter Name="i_Description" Type="varchar(max)" Mode="In" />
+          <Parameter Name="i_Image" Type="varchar(max)" Mode="In" />
+          <Parameter Name="i_StartDate" Type="date" Mode="In" />
+          <Parameter Name="i_EndDate" Type="date" Mode="In" />
+          <Parameter Name="i_VenueId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_Public" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="ef_CreateItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_ItemId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_EventId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_ParentId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_Name" Type="varchar" Mode="In" />
+          <Parameter Name="i_Description" Type="varchar(max)" Mode="In" />
+          <Parameter Name="i_Price" Type="decimal" Mode="In" />
+          <Parameter Name="i_Public" Type="bit" Mode="In" />
+          <Parameter Name="i_CreatedBy" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ef_CreateSponsorship" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_SponsorshipId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_ItemId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_ASPNetUsersId" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_SponsorshipAmount" Type="decimal" Mode="In" />
+          <Parameter Name="i_Public" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="ef_CreateVenue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_VenueId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_ASPNetUsersId" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_VenueName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="i_AddressId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_Street1" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_Street2" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_Street3" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_Street4" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_City" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_State" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_PostalCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_Country" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ef_GetEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_EventId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_ASPNetUsersId" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ef_GetItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_ItemId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="ef_GetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_ASPNetUsersId" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ef_GetVenue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_ASPNetUsersId" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_VenueId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="ef_UpdateAspNetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="i_Email" Type="varchar" Mode="In" />
+          <Parameter Name="i_PhoneNumber" Type="varchar(max)" Mode="In" />
+          <Parameter Name="i_FullName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ef_UpdateEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_EventId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_Title" Type="varchar" Mode="In" />
+          <Parameter Name="i_Description" Type="varchar(max)" Mode="In" />
+          <Parameter Name="i_Image" Type="varchar(max)" Mode="In" />
+          <Parameter Name="i_StartDate" Type="date" Mode="In" />
+          <Parameter Name="i_EndDate" Type="date" Mode="In" />
+          <Parameter Name="i_VenueId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_Public" Type="bit" Mode="In" />
+          <Parameter Name="i_IsDeleted" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="ef_UpdateItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_ItemId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_ParentId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="i_Name" Type="varchar" Mode="In" />
+          <Parameter Name="i_Description" Type="varchar(max)" Mode="In" />
+          <Parameter Name="i_Price" Type="decimal" Mode="In" />
+          <Parameter Name="i_Public" Type="bit" Mode="In" />
+          <Parameter Name="i_IsDeleted" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="GatheringsModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GatheringsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GatheringsEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="ef_CreateEvent">
+            <Parameter Name="i_EventId" Mode="In" Type="Guid" />
+            <Parameter Name="i_ASPNetUsersId" Mode="In" Type="String" />
+            <Parameter Name="i_Title" Mode="In" Type="String" />
+            <Parameter Name="i_Description" Mode="In" Type="String" />
+            <Parameter Name="i_Image" Mode="In" Type="String" />
+            <Parameter Name="i_StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="i_EndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="i_VenueId" Mode="In" Type="Guid" />
+            <Parameter Name="i_Public" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ef_CreateItem">
+            <Parameter Name="i_ItemId" Mode="In" Type="Guid" />
+            <Parameter Name="i_EventId" Mode="In" Type="Guid" />
+            <Parameter Name="i_ParentId" Mode="In" Type="Guid" />
+            <Parameter Name="i_Name" Mode="In" Type="String" />
+            <Parameter Name="i_Description" Mode="In" Type="String" />
+            <Parameter Name="i_Price" Mode="In" Type="Decimal" />
+            <Parameter Name="i_Public" Mode="In" Type="Boolean" />
+            <Parameter Name="i_CreatedBy" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ef_CreateSponsorship">
+            <Parameter Name="i_SponsorshipId" Mode="In" Type="Guid" />
+            <Parameter Name="i_ItemId" Mode="In" Type="Guid" />
+            <Parameter Name="i_ASPNetUsersId" Mode="In" Type="String" />
+            <Parameter Name="i_SponsorshipAmount" Mode="In" Type="Decimal" />
+            <Parameter Name="i_Public" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ef_CreateVenue">
+            <Parameter Name="i_VenueId" Mode="In" Type="Guid" />
+            <Parameter Name="i_ASPNetUsersId" Mode="In" Type="String" />
+            <Parameter Name="i_VenueName" Mode="In" Type="String" />
+            <Parameter Name="i_AddressId" Mode="In" Type="Guid" />
+            <Parameter Name="i_Street1" Mode="In" Type="String" />
+            <Parameter Name="i_Street2" Mode="In" Type="String" />
+            <Parameter Name="i_Street3" Mode="In" Type="String" />
+            <Parameter Name="i_Street4" Mode="In" Type="String" />
+            <Parameter Name="i_City" Mode="In" Type="String" />
+            <Parameter Name="i_State" Mode="In" Type="String" />
+            <Parameter Name="i_PostalCode" Mode="In" Type="String" />
+            <Parameter Name="i_Country" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ef_GetEvent" ReturnType="Collection(GatheringsModel.ef_GetEvent_Result)">
+            <Parameter Name="i_EventId" Mode="In" Type="Guid" />
+            <Parameter Name="i_ASPNetUsersId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ef_GetItem" ReturnType="Collection(GatheringsModel.ef_GetItem_Result)">
+            <Parameter Name="i_ItemId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="ef_GetUser" ReturnType="Collection(GatheringsModel.ef_GetUser_Result)">
+            <Parameter Name="i_ASPNetUsersId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ef_GetVenue" ReturnType="Collection(GatheringsModel.ef_GetVenue_Result)">
+            <Parameter Name="i_ASPNetUsersId" Mode="In" Type="String" />
+            <Parameter Name="i_VenueId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="ef_UpdateAspNetUser">
+            <Parameter Name="i_UserName" Mode="In" Type="String" />
+            <Parameter Name="i_Email" Mode="In" Type="String" />
+            <Parameter Name="i_PhoneNumber" Mode="In" Type="String" />
+            <Parameter Name="i_FullName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ef_UpdateEvent">
+            <Parameter Name="i_EventId" Mode="In" Type="Guid" />
+            <Parameter Name="i_Title" Mode="In" Type="String" />
+            <Parameter Name="i_Description" Mode="In" Type="String" />
+            <Parameter Name="i_Image" Mode="In" Type="String" />
+            <Parameter Name="i_StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="i_EndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="i_VenueId" Mode="In" Type="Guid" />
+            <Parameter Name="i_Public" Mode="In" Type="Boolean" />
+            <Parameter Name="i_IsDeleted" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ef_UpdateItem">
+            <Parameter Name="i_ItemId" Mode="In" Type="Guid" />
+            <Parameter Name="i_ParentId" Mode="In" Type="Guid" />
+            <Parameter Name="i_Name" Mode="In" Type="String" />
+            <Parameter Name="i_Description" Mode="In" Type="String" />
+            <Parameter Name="i_Price" Mode="In" Type="Decimal" />
+            <Parameter Name="i_Public" Mode="In" Type="Boolean" />
+            <Parameter Name="i_IsDeleted" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ef_GetEvent_Result">
+          <Property Type="Guid" Name="EventId" Nullable="false" />
+          <Property Type="String" Name="ASPNetUsersId" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EventDescription" Nullable="false" />
+          <Property Type="String" Name="EventImage" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" />
+          <Property Type="Guid" Name="VenueId" Nullable="true" />
+          <Property Type="Boolean" Name="Public" Nullable="false" />
+          <Property Type="Guid" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="ItemName" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="ItemDescription" Nullable="false" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="8" Scale="2" />
+          <Property Type="Boolean" Name="ItemIsPublic" Nullable="false" />
+          <Property Type="Decimal" Name="SponsoredAmount" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ef_GetItem_Result">
+          <Property Type="Guid" Name="ItemId" Nullable="false" />
+          <Property Type="Guid" Name="EventId" Nullable="false" />
+          <Property Type="Guid" Name="ParentId" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="8" Scale="2" />
+          <Property Type="Boolean" Name="Public" Nullable="false" />
+          <Property Type="Decimal" Name="SponsoredAmount" Nullable="false" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ef_GetUser_Result">
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" />
+          <Property Type="String" Name="LoginProvider" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="ProviderKey" Nullable="false" MaxLength="128" />
+        </ComplexType>
+        <ComplexType Name="ef_GetVenue_Result">
+          <Property Type="Guid" Name="VenueId" Nullable="false" />
+          <Property Type="String" Name="VenueName" Nullable="false" />
+          <Property Type="Guid" Name="AddressId" Nullable="false" />
+          <Property Type="String" Name="Street1" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Street2" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Street3" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Street4" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GatheringsModelStoreContainer" CdmEntityContainer="GatheringsEntities" >
+          <FunctionImportMapping FunctionImportName="ef_CreateEvent" FunctionName="GatheringsModel.Store.ef_CreateEvent" />
+          <FunctionImportMapping FunctionImportName="ef_CreateItem" FunctionName="GatheringsModel.Store.ef_CreateItem" />
+          <FunctionImportMapping FunctionImportName="ef_CreateSponsorship" FunctionName="GatheringsModel.Store.ef_CreateSponsorship" />
+          <FunctionImportMapping FunctionImportName="ef_CreateVenue" FunctionName="GatheringsModel.Store.ef_CreateVenue" />
+          <FunctionImportMapping FunctionImportName="ef_GetEvent" FunctionName="GatheringsModel.Store.ef_GetEvent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GatheringsModel.ef_GetEvent_Result">
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="ASPNetUsersId" ColumnName="ASPNetUsersId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+                <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+                <ScalarProperty Name="Public" ColumnName="Public" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ItemIsPublic" ColumnName="ItemIsPublic" />
+                <ScalarProperty Name="SponsoredAmount" ColumnName="SponsoredAmount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ef_GetItem" FunctionName="GatheringsModel.Store.ef_GetItem">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GatheringsModel.ef_GetItem_Result">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Public" ColumnName="Public" />
+                <ScalarProperty Name="SponsoredAmount" ColumnName="SponsoredAmount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ef_GetUser" FunctionName="GatheringsModel.Store.ef_GetUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GatheringsModel.ef_GetUser_Result">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ef_GetVenue" FunctionName="GatheringsModel.Store.ef_GetVenue">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GatheringsModel.ef_GetVenue_Result">
+                <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+                <ScalarProperty Name="VenueName" ColumnName="VenueName" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="Street1" ColumnName="Street1" />
+                <ScalarProperty Name="Street2" ColumnName="Street2" />
+                <ScalarProperty Name="Street3" ColumnName="Street3" />
+                <ScalarProperty Name="Street4" ColumnName="Street4" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ef_UpdateAspNetUser" FunctionName="GatheringsModel.Store.ef_UpdateAspNetUser" />
+          <FunctionImportMapping FunctionImportName="ef_UpdateEvent" FunctionName="GatheringsModel.Store.ef_UpdateEvent" />
+          <FunctionImportMapping FunctionImportName="ef_UpdateItem" FunctionName="GatheringsModel.Store.ef_UpdateItem" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
